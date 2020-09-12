@@ -1,6 +1,9 @@
 $(function() {
     var layer = layui.layer
-    $.ajax({
+    usery()
+
+    function usery() {
+        $.ajax({
             url: '/my/userinfo',
             type: 'GET',
             success: function(res) {
@@ -9,11 +12,19 @@ $(function() {
                 } else {
                     renderAvatar(res.data)
                 }
-            }
+            },
+            // complete: function(res) {
+            //     console.log(res)
+            //     if (res.responseJSON.status === 1 || res.responseJSON.message === '身份认证失败！') {
+            //         localStorage.removeItem('token')
+            //         location.href = '../../login.html'
+            //     }
+            // }
         })
-        // attr属性设置器
-        //toUpperCase() 方法用于把字符串转换为大写
-        //id具有唯一性,少用
+    }
+    // attr属性设置器
+    //toUpperCase() 方法用于把字符串转换为大写
+    //id具有唯一性,少用
     function renderAvatar(user) {
         var name = user.username || user.nickname
         $('#qq').html('欢迎' + name)
