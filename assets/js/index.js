@@ -26,9 +26,10 @@ $(function() {
     //toUpperCase() 方法用于把字符串转换为大写
     //id具有唯一性,少用
     function renderAvatar(user) {
+        console.log(user);
         var name = user.username || user.nickname
         $('#qq').html('欢迎' + name)
-        console.log(user.user_pic);
+
         if (user.user_pic !== null) {
             $('.ww').hide()
             $('.layui-nav-img').attr('scr', user.user_pic).show()
@@ -36,7 +37,7 @@ $(function() {
             $('.layui-nav-img').hide()
             var firstName = name[0].toUpperCase()
 
-            console.log(firstName);
+
             $('.ww').html(firstName).show()
         }
     }

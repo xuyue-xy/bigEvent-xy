@@ -38,7 +38,7 @@ $(function() {
                     return layer.msg(res.message)
                 }
                 console.log(window.parent);
-                window.parent.usery()
+                top.window.parent.usery()
             }
         })
     })
